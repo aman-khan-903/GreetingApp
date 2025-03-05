@@ -15,7 +15,7 @@ public class GreetingService {
         this.greetingRepository = greetingRepository;
     }
 
-    public String updateGreeting(Long id, String newMessage) {
-        return greetingRepository.updateGreeting(id, newMessage);
+    public String deleteGreeting(Long id) {
+        return greetingRepository.deleteGreeting(id);
     }
 }
