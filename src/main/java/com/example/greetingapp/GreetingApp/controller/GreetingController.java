@@ -1,5 +1,6 @@
 package com.example.greetingapp.GreetingApp.controller;
 
+import com.example.greetingapp.GreetingApp.DTO.UserDTO;
 import com.example.greetingapp.GreetingApp.Services.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,5 +17,10 @@ public class GreetingController {
     @GetMapping
     public String getGreeting() {
         return greetingService.getGreeting();
+    }
+
+    @PostMapping("/personalized")
+    public String getPersonalizedGreeting(@RequestBody UserDTO user) {
+        return greetingService.getPersonalizedGreeting(user);
     }
 }
