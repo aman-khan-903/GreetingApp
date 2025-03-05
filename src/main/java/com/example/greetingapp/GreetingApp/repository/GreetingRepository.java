@@ -27,11 +27,16 @@ public class GreetingRepository {
         return greetings.getOrDefault(id, "Greeting not found");
     }
 
-    // ✅ New Method to List All Greetings
-    public List<String> findAllGreetings() {
-        return greetings.entrySet()
-                .stream()
-                .map(entry -> "ID: " + entry.getKey() + ", Message: " + entry.getValue())
-                .collect(Collectors.toList());
+    public Map<Long, String> findAllGreetings() {
+        return greetings;
+    }
+
+    // ✅ New Method to Update a Greeting
+    public String updateGreeting(Long id, String newMessage) {
+        if (greetings.containsKey(id)) {
+            greetings.put(id, newMessage);
+            return "Greeting updated successfully!";
+        }
+        return "Greeting not found!";
     }
 }
