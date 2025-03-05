@@ -11,12 +11,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
+    private final GreetingService greetingService;
 
-    @Autowired
-    private GreetingService greetingService;
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
 
-    @GetMapping("/{id}")
-    public String getGreetingById(@PathVariable Long id) {
-        return greetingService.getGreetingById(id);
+    @GetMapping("/all")
+    public List<String> getAllGreetings() {
+        return greetingService.getAllGreetings();
     }
 }
