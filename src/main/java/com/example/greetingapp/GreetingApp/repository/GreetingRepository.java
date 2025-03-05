@@ -31,11 +31,19 @@ public class GreetingRepository {
         return greetings;
     }
 
-    // ✅ New Method to Update a Greeting
     public String updateGreeting(Long id, String newMessage) {
         if (greetings.containsKey(id)) {
             greetings.put(id, newMessage);
             return "Greeting updated successfully!";
+        }
+        return "Greeting not found!";
+    }
+
+    // ✅ New Method to Delete a Greeting
+    public String deleteGreeting(Long id) {
+        if (greetings.containsKey(id)) {
+            greetings.remove(id);
+            return "Greeting deleted successfully!";
         }
         return "Greeting not found!";
     }
