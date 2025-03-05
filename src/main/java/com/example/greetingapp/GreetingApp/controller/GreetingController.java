@@ -17,8 +17,8 @@ public class GreetingController {
         this.greetingService = greetingService;
     }
 
-    @GetMapping("/all")
-    public List<String> getAllGreetings() {
-        return greetingService.getAllGreetings();
+    @PutMapping("/update/{id}")
+    public String updateGreeting(@PathVariable Long id, @RequestBody String newMessage) {
+        return greetingService.updateGreeting(id, newMessage);
     }
 }
